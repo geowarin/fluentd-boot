@@ -1,6 +1,24 @@
+es:
+  image: elasticsearch
+#  volumes:
+#    - ./es-data:/data
+  ports:
+    - 9200:9200
+    - 9300:9300
+
+kibana:
+  image: kibana
+  ports:
+    - 5601:5601
+  links:
+    - es:elasticsearch
+
 fluentd:
-  image: fluent/fluentd
+  build: fluent-es/
   volumes:
     - ./fluent-data:/fluentd/log
   ports:
-    - "24224:24224"
+    - 24224:24224
+#    - 24224:24224/udp
+  links:
+    - es:es
