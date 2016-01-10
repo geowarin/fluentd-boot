@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-docker-compose -f fluent-compose.yml kill
-docker-compose kill
+docker-compose -f compose/app/docker-compose.yml kill
+docker-compose -f compose/fluentd/docker-compose.yml kill
