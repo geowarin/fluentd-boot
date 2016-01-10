@@ -1,0 +1,5 @@
+app:
+  image: geowarin/fluentd-boot
+  log_driver: "fluentd"
+  log_opt:
+    fluentd-address: "192.168.99.100:24224"

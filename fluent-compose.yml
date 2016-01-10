@@ -1,0 +1,6 @@
+fluentd:
+  image: fluent/fluentd
+  volumes:
+    - ./fluent-data:/fluentd/log
+  ports:
+    - "24224:24224"
