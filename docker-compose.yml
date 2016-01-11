@@ -1,0 +1,26 @@
+es:
+  image: elasticsearch:2
+# does not work on mac unless dir owner is elasticsearch
+#  volumes:
+#    - ${PWD}/es-data:/usr/share/elasticsearch/data
+# The following will store es data in your boot2docker vm
+# Use 'docker-machine ssh default' to remove it
+  volumes:
+    - /srv/docker/es:/usr/share/elasticsearch/data
+  ports:
+    - 9200:9200
+    - 9300:9300
+
+kibana:
+  image: kibana
+  ports:
+    - 5601:5601
+  links:
+    - es:elasticsearch
+
+fluentd:
+  build: fluent-es/
+  ports:
+    - 24224:24224
+  links:
+    - es:es
