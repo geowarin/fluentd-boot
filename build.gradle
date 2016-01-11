@@ -26,6 +26,7 @@ targetCompatibility = 1.8
 
 repositories {
     mavenCentral()
+    maven { url 'http://sndyuk.github.com/maven' }
 }
 
 
@@ -34,6 +35,9 @@ dependencies {
     compile('org.springframework.retry:spring-retry')
     compile('org.springframework.boot:spring-boot-starter')
     compile('org.codehaus.groovy:groovy')
+    compile 'org.fluentd:fluent-logger:0.3.2'
+    compile 'com.sndyuk:logback-more-appenders:1.1.1'
+    compile 'com.github.groovy-wslite:groovy-wslite:1.1.2'
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
